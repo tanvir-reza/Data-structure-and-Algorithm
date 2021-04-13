@@ -1,0 +1,84 @@
+#include<iostream>
+using namespace std;
+class Stack{
+    int arr[5];
+    int top;
+    public:
+    Stack()
+    {
+        top = -1;
+        for(int i=0;i<5;i++)
+        {
+            arr[i]=0;
+        }
+    }
+    bool isEmpty()
+    {
+        if (top==-1)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    bool isFull()
+    {
+        if(top==4)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    void push()
+    {
+        if(isFull()){
+            cout<<"Stack Is Full"<<endl;
+        }
+        else{
+            for(int i=0;i<5;i++)
+            {
+                arr[i] = i;
+                top++;
+            }
+        }
+    }
+    void pop()
+    {
+        if(isEmpty())
+        {
+            cout<<"Stack Is Empty"<<endl;
+        }
+        else{
+            arr[top] = 0;
+            top = top-1;
+        }
+    }
+    int count()
+    {
+        return top+1;
+    }
+    void change(int pos,int val)
+    {
+        arr[pos]=val;
+    }
+    void display()
+    {
+        for(int i=0;i<5;i++)
+        {
+            cout<<arr[i]<<endl;
+        }
+    }
+};
+
+int main()
+{
+    Stack s;
+    s.push();
+    s.change(2,30);
+    s.pop();
+    s.display();
+    
+}
